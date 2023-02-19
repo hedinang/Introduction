@@ -1,0 +1,49 @@
+.nav-header {
+  height: 100% !important;
+  color: red !important;
+  background-color: white !important;
+  // border-bottom-style: solid;
+  border-bottom-color: #001529;
+  border-bottom-width: 2px;
+  line-height: 0px !important;
+  display: grid;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.menuButton {
+  float: right;
+}
+.nav-header ul {
+  // margin-top: 8px;
+  height: 100%;
+}
+li::after {
+  border-bottom-color: white !important;
+}
+li .ant-menu-title-content,
+.ant-menu-item-icon {
+  font-size: 17px !important;
+}
+.ant-menu > ul > li:active {
+  background-color: #1677ff !important;
+}
+
+.left-horizontal-menu {
+  justify-content: center;
+  align-items: center;
+}
+.brand {
+  justify-content: left;
+}
+.right-menu {
+  justify-content: right;
+  align-items: center;
+}
+
+.left-horizontal-menu li {
+    position: unset !important;
+}
+.right-menu li {
+    position: unset !important;
+}

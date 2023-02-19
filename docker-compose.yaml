@@ -1,0 +1,15 @@
+version: "3"
+services:
+  introduction:
+    container_name: introduction
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4400:4400"
+    # restart: unless-stopped
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - ./fe/node_modules:/usr/app/node_modules
+      - ./fe:/usr/app
