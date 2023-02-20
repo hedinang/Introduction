@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Button, Col, Drawer, Image, Row } from "antd";
 import { Header } from "antd/es/layout/layout";
-import { PicRightOutlined } from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 import LeftMenu from "./LeftMenu";
 import RightMenu from "./RightMenu";
 import LeftHorizontalMenu from "./LeftHorizontalMenu";
-import brand from '../../asset/img/header/raccoon1.jpg'
+import brand from '../../asset/img/header/1.png'
 
 const Navbar = () => {
     const [rightVisible, setRightVisible] = useState(false);
@@ -20,7 +20,7 @@ const Navbar = () => {
                     </Col>
                     <Col lg={4} span={18} className="brand">
                         <Image preview={false}
-                            src={'https://weinlux.vn/wp-content/uploads/2022/10/Weinlux-logo-200.png'}
+                            src={brand}
                         />
                     </Col>
                     <Col lg={12} span={0} >
@@ -35,7 +35,7 @@ const Navbar = () => {
                         <Button className="menuButton" type="text"
                             onClick={showRightDrawer}
                         >
-                            <PicRightOutlined />
+                            <MenuOutlined width={100}/>
                         </Button>
                     </Col>
                 </Row>

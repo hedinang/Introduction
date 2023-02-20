@@ -1,10 +1,12 @@
 import { Col, Image, Row } from 'antd';
 import React from 'react';
+import brand from '../asset/img/header/1.png'
 export const Footer = () => {
     return <div className='footer'>
         <Row className='container-logo'>
             <Image className='logo' preview={false}
-                src={'https://weinlux.vn/wp-content/uploads/2022/10/Weinlux-logo-200.png'}
+                src={brand}
+            // src={'https://weinlux.vn/wp-content/uploads/2022/10/Weinlux-logo-200.png'}
             />
         </Row>
         <Row>
@@ -25,7 +27,7 @@ export const Footer = () => {
         </Row>
         <Row style={{ justifyContent: 'center' }}>
             <div className='footer-end'>
-                Copyright © 2023 SUPER HERO. All Rights Reserved.
+                Copyright © 2023 MIRACLE SOFTWARE. All Rights Reserved.
             </div>
         </Row>
     </div>

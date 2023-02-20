@@ -4,6 +4,10 @@ import d2 from '../asset/img/leader/d2.jpg'
 import duc1 from '../asset/img/leader/duc1.jpg'
 import tu2 from '../asset/img/leader/tu2.jpg'
 import na1 from '../asset/img/leader/na1.jpg'
+import tp1 from '../asset/img/partner/tp1.png'
+import skilloan from '../asset/img/partner/skilloan.png'
+import weinlux from '../asset/img/partner/weinlux.png'
+import { Animation } from '../component/Animation';
 
 const Home = () => {
     const partnerList = [
@@ -20,13 +24,13 @@ const Home = () => {
             img: 'https://ghdc.vn/uploads/images/banner/2022-06-25-11-20-13viettel.png'
         },
         {
-            img: 'https://ghdc.vn/uploads/images/banner/2022-06-27-09-14-44R-removebg-preview.png'
+            img: skilloan
         },
         {
-            img: 'https://ghdc.vn/uploads/images/banner/2022-06-27-09-55-49evn2.png'
+            img: weinlux
         },
         {
-            img: 'https://ghdc.vn/uploads/images/banner/2022-06-27-10-29-25byt-removebg-preview.png'
+            img: tp1
         },
         {
             img: ''
@@ -79,10 +83,10 @@ const Home = () => {
         const img = e.img
         switch (img) {
             case '':
-                return <Col span={3}>
+                return <Col lg={3} span={0}>
                 </Col>
             default:
-                return <Col span={3} style={{ display: 'flex', alignItems: 'center' }}>
+                return <Col lg={3} span={24} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Image preview={false} src={e.img} style={{ padding: '0 25px' }} />
                 </Col>
         }
@@ -124,7 +128,7 @@ const Home = () => {
     }
 
     const onChange = (currentSlide) => {
-        console.log(currentSlide);
+        // console.log(currentSlide);
     };
     const contentStyle = {
         margin: 0,
@@ -136,8 +140,8 @@ const Home = () => {
     };
     return (
         <>
-            <div className='container'>
-                {/* <video
+            {/* <div className='container'> */}
+            {/* <video
                     loop
                     autoPlay
                     muted
@@ -147,9 +151,11 @@ const Home = () => {
                     <source src="https://youtu.be/ecBco63zvas" type="video/mp4" />
                     
                 </video> */}
-                <iframe width="100%" height="750px" src="https://www.youtube-nocookie.com/embed/ecBco63zvas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            {/* <iframe width="100%" height="750px" src="https://www.youtube-nocookie.com/embed/ecBco63zvas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
 
-            </div>
+            {/* </div> */}
+            <Animation />
+            <h2 style={{ textAlign: 'center', fontSize: '30px' }}>Our partner</h2>
             <Row>
                 {partnerList.map(e => partner(e))}
             </Row>
@@ -157,13 +163,13 @@ const Home = () => {
             <Row>
                 {serviceList.map(e => service(e))}
             </Row>
-            <Row style={{ fontSize: '30px', justifyContent: 'center', marginTop: '150px' }}>More than 10 years of experience in the
+            <Row style={{ fontSize: '30px', justifyContent: 'center', marginTop: '150px', textAlign: 'center' }}>More than 10 years of experience in the
                 field of information technology
             </Row>
             <Carousel autoplay afterChange={onChange}>
                 {slideExperienceList.map(e => slideExperience(e))}
             </Carousel>
-            <Row style={{ fontSize: '30px', justifyContent: 'center', marginTop: '150px' }}>Leadership team
+            <Row style={{ fontSize: '30px', justifyContent: 'center', marginTop: '150px' }}>Member team
             </Row>
             <Row style={{ marginTop: '50px' }}>
                 {slideLeaderList.map(e => leader(e))}
