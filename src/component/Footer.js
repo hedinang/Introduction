@@ -11,7 +11,7 @@ export const Footer = () => {
         </Row>
         <Row>
             <Col lg={6} span={0} ></Col>
-            <Col lg={4} span={24} className='footer-item'>
+            <Col lg={4} span={24} className='footer-item footer-head'>
                 <p>Head office: 122 Đào Tấn - Phường Cống Vị - Ba Đình - Hà Nội</p>
                 <div className='brief-info'>Address</div>
             </Col>

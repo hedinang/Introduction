@@ -29,21 +29,26 @@ li .ant-menu-title-content,
   background-color: #1677ff !important;
 }
 
-.left-horizontal-menu {
-  justify-content: center;
-  align-items: center;
-}
+// .left-horizontal-menu {
+//   justify-content: center !important;
+//   align-items: center !important;
+// }
 .brand {
   justify-content: left;
 }
-.right-menu {
-  justify-content: right;
-  align-items: center;
-}
+// .right-menu {
+//   justify-content: right;
+//   align-items: center;
+// }
 
 .left-horizontal-menu li {
-    position: unset !important;
+  // position: relative !important;
+  padding-bottom: 3px;
 }
 .right-menu li {
-    position: unset !important;
+  padding-bottom: 3px;
 }
+// .col-left-menu {
+//   display: flex;
+//   justify-content: center;
+// }

@@ -1,5 +1,6 @@
 body {
-    overflow-y: hidden;
+    // overflow-y: hidden !important;
+    overflow-x: hidden !important;
 }
 .input-feedback {
     color: red;

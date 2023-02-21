@@ -26,7 +26,7 @@ const RightMenu = ({ mode }) => {
                 break;
         }
     };
-    return <Menu className="right-menu" onClick={onClick} selectedKeys={[]} mode={mode} items={items} />
+    return <Menu style={{ float: 'right', alignItems: 'center' }} onClick={onClick} selectedKeys={[]} mode={mode} items={items} />
 };
 export default RightMenu;
 

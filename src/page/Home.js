@@ -1,5 +1,6 @@
-import { Carousel, Col, Image, Row } from 'antd';
-import React from 'react';
+import React, { useEffect, useState } from 'react'
+import { Carousel, Col, Image, Row } from 'antd'
+import Introduce, { IntroduceThreeDesktop, IntroduceThreeMobile } from '../component/IntroduceThreeD'
 import d2 from '../asset/img/leader/d2.jpg'
 import duc1 from '../asset/img/leader/duc1.jpg'
 import tu2 from '../asset/img/leader/tu2.jpg'
@@ -7,9 +8,8 @@ import na1 from '../asset/img/leader/na1.jpg'
 import tp1 from '../asset/img/partner/tp1.png'
 import skilloan from '../asset/img/partner/skilloan.png'
 import weinlux from '../asset/img/partner/weinlux.png'
-import { Animation } from '../component/Animation';
 
-const Home = () => {
+export default function Home() {
     const partnerList = [
         {
             img: ''
@@ -87,7 +87,7 @@ const Home = () => {
                 </Col>
             default:
                 return <Col lg={3} span={24} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Image preview={false} src={e.img} style={{ padding: '0 25px' }} />
+                    <Image preview={false} src={e.img} style={{ padding: '10px 25px' }} />
                 </Col>
         }
     }
@@ -138,23 +138,22 @@ const Home = () => {
         textAlign: 'center',
         // background: '#364d79',
     };
-    return (
-        <>
-            {/* <div className='container'> */}
-            {/* <video
-                    loop
-                    autoPlay
-                    muted
-                    className='video'
-                    width={'100%'}
-                    poster='https://ghdc.vn/uploads/images/banner/2022-06-24-09-46-55bg-xanh.png'>
-                    <source src="https://youtu.be/ecBco63zvas" type="video/mp4" />
-                    
-                </video> */}
-            {/* <iframe width="100%" height="750px" src="https://www.youtube-nocookie.com/embed/ecBco63zvas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
 
-            {/* </div> */}
-            <Animation />
+    let [responsive, setResponsive] = useState('desktop')
+    let [longestLine, setLongestLine] = useState(100)
+    useEffect(() => {
+        function handleResize() {
+            setResponsive(responsive)
+            setLongestLine(window.innerWidth * 1.4)
+        }
+        window.addEventListener("resize", handleResize)
+        handleResize()
+    }, [])
+    return (
+        <div>
+            {/* <Introduce responsive={responsive} longestLine={longestLine} /> */}
+            <IntroduceThreeDesktop />
+            <IntroduceThreeMobile longestLine={longestLine} />
             <h2 style={{ textAlign: 'center', fontSize: '30px' }}>Our partner</h2>
             <Row>
                 {partnerList.map(e => partner(e))}
@@ -169,12 +168,12 @@ const Home = () => {
             <Carousel autoplay afterChange={onChange}>
                 {slideExperienceList.map(e => slideExperience(e))}
             </Carousel>
-            <Row style={{ fontSize: '30px', justifyContent: 'center', marginTop: '150px' }}>Member team
+            <Row style={{ fontSize: '30px', justifyContent: 'center', marginTop: '150px' }}>Team member
             </Row>
             <Row style={{ marginTop: '50px' }}>
                 {slideLeaderList.map(e => leader(e))}
             </Row>
-        </>
+        </div>
+
     )
 }
-export default Home 

@@ -13,3 +13,20 @@
     opacity: 1;
     background: #364d79;
 }
+.intro-desktop {
+    background-color: #002a56;
+}
+@media (max-width: 900px) {
+    .intro-desktop {
+        display: none;
+    }
+}
+
+.intro-mobile {
+    background-color: #002a56;
+}
+@media (min-width: 900px) {
+    .intro-mobile {
+        display: none;
+    }
+}

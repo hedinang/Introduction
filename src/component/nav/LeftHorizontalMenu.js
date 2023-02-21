@@ -127,6 +127,6 @@ const LeftHorizontalMenu = ({ mode }) => {
         console.log('click ', e);
         setCurrent(e.key);
     };
-    return <Menu className="left-horizontal-menu" onClick={onClick} selectedKeys={[current]} mode={mode} items={items} />;
+    return <Menu style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }} className="left-horizontal-menu" onClick={onClick} selectedKeys={[current]} mode={mode} items={items} />;
 };
 export default LeftHorizontalMenu;
