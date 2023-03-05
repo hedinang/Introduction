@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Carousel, Col, Image, Row } from 'antd'
-import Introduce, { IntroduceThreeDesktop, IntroduceThreeMobile } from '../component/IntroduceThreeD'
+import { Col, Image, Row } from 'antd'
+import { IntroduceThreeDesktop, IntroduceThreeMobile } from '../component/IntroduceThreeD'
 import d2 from '../asset/img/leader/d2.jpg'
 import duc1 from '../asset/img/leader/duc1.jpg'
 import tu2 from '../asset/img/leader/tu2.jpg'
@@ -8,32 +8,38 @@ import na1 from '../asset/img/leader/na1.jpg'
 import tp1 from '../asset/img/partner/tp1.png'
 import skilloan from '../asset/img/partner/skilloan.png'
 import weinlux from '../asset/img/partner/weinlux.png'
+import supermomos from '../asset/img/partner/supermomos.jpg'
+import { SlideAuto, SlideShow } from '../component/Slide'
+
 
 export default function Home() {
     const partnerList = [
         {
-            img: ''
+            img: 'https://ghdc.vn/uploads/images/banner/2022-06-27-09-19-00vina-removebg-preview.png',
+            url: 'https://vinaphone.com.vn/'
         },
         {
-            img: 'https://ghdc.vn/uploads/images/banner/2022-06-27-09-19-00vina-removebg-preview.png'
+            img: 'https://ghdc.vn/uploads/images/banner/2022-06-27-09-17-50mobi.png',
+            url: 'https://www.mobifone.vn/'
         },
         {
-            img: 'https://ghdc.vn/uploads/images/banner/2022-06-27-09-17-50mobi.png'
+            img: 'https://ghdc.vn/uploads/images/banner/2022-06-25-11-20-13viettel.png',
+            url: 'https://viettel.com.vn/en/'
         },
         {
-            img: 'https://ghdc.vn/uploads/images/banner/2022-06-25-11-20-13viettel.png'
+            img: skilloan,
+            url: 'https://mechanicsmarketplace.com'
         },
         {
-            img: skilloan
-        },
-        {
-            img: weinlux
+            img: weinlux,
+            url: 'https://weinlux.vn'
         },
         {
             img: tp1
         },
         {
-            img: ''
+            img: supermomos,
+            url: 'http://75.119.131.21:3300/social-detail'
         }
     ]
     const serviceList = [
@@ -59,12 +65,6 @@ export default function Home() {
             img: ''
         }
     ]
-    const slideExperienceList = [
-        { img: 'https://ghdc.vn/home/image1-home3.png' },
-        { img: 'https://ghdc.vn/home/image2-home3.png' },
-        { img: 'https://ghdc.vn/home/image1-home3.png' },
-        { img: 'https://ghdc.vn/home/image2-home3.png' }
-    ]
     const slideLeaderList = [
         {
             img: ''
@@ -79,18 +79,6 @@ export default function Home() {
             img: ''
         },
     ]
-    const partner = (e) => {
-        const img = e.img
-        switch (img) {
-            case '':
-                return <Col lg={3} span={0}>
-                </Col>
-            default:
-                return <Col lg={3} span={24} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Image preview={false} src={e.img} style={{ padding: '10px 25px' }} />
-                </Col>
-        }
-    }
     const service = (e) => {
         const img = e.img
         switch (img) {
@@ -104,13 +92,6 @@ export default function Home() {
                     {e.criteriaList.map(f => <Row style={{ width: '100%', padding: '0 20px', color: '#337ab7', marginTop: '10px', fontWeight: 'bold' }}>{f}</Row>)}
                 </Col>
         }
-    }
-    const slideExperience = e => {
-        return <div>
-            <h3 style={contentStyle}>
-                <Image src={e.img} preview={false} />
-            </h3>
-        </div>
     }
     const leader = e => {
         const img = e.img
@@ -126,19 +107,10 @@ export default function Home() {
                 </Col>
         }
     }
-
-    const onChange = (currentSlide) => {
-        // console.log(currentSlide);
-    };
-    const contentStyle = {
-        margin: 0,
-        // height: '160px',
-        color: '#364d79',
-        lineHeight: '160px',
-        textAlign: 'center',
-        // background: '#364d79',
-    };
-
+    const images = [
+        "https://ghdc.vn/home/image1-home3.png",
+        "https://ghdc.vn/home/image2-home3.png",
+    ];
     let [responsive, setResponsive] = useState('desktop')
     let [longestLine, setLongestLine] = useState(100)
     useEffect(() => {
@@ -151,24 +123,21 @@ export default function Home() {
     }, [])
     return (
         <div>
-            {/* <Introduce responsive={responsive} longestLine={longestLine} /> */}
             <IntroduceThreeDesktop />
             <IntroduceThreeMobile longestLine={longestLine} />
             <h2 style={{ textAlign: 'center', fontSize: '30px' }}>Our partner</h2>
-            <Row>
-                {partnerList.map(e => partner(e))}
-            </Row>
-            <h2 style={{ textAlign: 'center', fontSize: '30px' }}>Our service</h2>
+            <SlideAuto contentList={partnerList} numOfItem={5} className='long-slide' />
+            <SlideAuto contentList={partnerList} numOfItem={3} className='medium-slide' />
+            <SlideAuto contentList={partnerList} numOfItem={1} className='short-slide' />
+            <h2 style={{ textAlign: 'center', fontSize: '30px', marginTop: '100px' }}>Our service</h2>
             <Row>
                 {serviceList.map(e => service(e))}
             </Row>
             <Row style={{ fontSize: '30px', justifyContent: 'center', marginTop: '150px', textAlign: 'center' }}>More than 10 years of experience in the
                 field of information technology
             </Row>
-            <Carousel autoplay afterChange={onChange}>
-                {slideExperienceList.map(e => slideExperience(e))}
-            </Carousel>
-            <Row style={{ fontSize: '30px', justifyContent: 'center', marginTop: '150px' }}>Team member
+            <SlideShow contentList={images} />
+            <Row style={{ fontSize: '30px', justifyContent: 'center', marginTop: '100px' }}>Team member
             </Row>
             <Row style={{ marginTop: '50px' }}>
                 {slideLeaderList.map(e => leader(e))}

@@ -251,18 +251,6 @@ function IntroduceThreeMobile(props) {
 
     )
 }
-function Introduce(props) {
-    useEffect(() => {
-
-    }, [props])
-    return <IntroduceThreeDesktop />
-    switch (props.responsive) {
-        case 'mobile':
-            return <IntroduceThreeMobile responsive={props.responsive} longestLine={props.longestLine} />
-        case 'desktop':
-            return <IntroduceThreeDesktop responsive={props.responsive} longestLine={props.longestLine} />
-    }
-}
 export {
     IntroduceThreeDesktop, IntroduceThreeMobile
 }
