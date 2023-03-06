@@ -6,6 +6,10 @@
   align-items: center;
   gap: 20px;
 }
+.slide-show img {
+  max-width: 70%;
+  height: auto;
+}
 .move-button {
   font-size: 40px;
   color: #908d8d;
@@ -18,13 +22,11 @@
   align-items: center;
   gap: 100px;
   height: 90px;
-  // width: 150px;
 }
 .slide-auto img {
-  width: 150px;
-  height: 80px;
+  width: auto;
+  max-height: 90px;
   cursor: pointer;
-  // object-fit: cover;
 }
 .short-slide {
   display: none;
