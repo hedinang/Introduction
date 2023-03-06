@@ -32,7 +32,7 @@ const SlideAuto = ({ contentList, numOfItem, className }) => {
         setQueue([...contentList.slice(0, numOfItem)])
     }, [])
     useEffect(() => {
-        const timer = interval(5000).subscribe(() => {
+        const timer = interval(2000).subscribe(() => {
             const tmp = (last === contentList.length - 1) ? 0 : last + 1
             queue.push(contentList[tmp])
             queue.shift()
